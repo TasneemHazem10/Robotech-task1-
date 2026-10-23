@@ -1,0 +1,171 @@
+/* This file styles the web dashboard with a simple, responsive layout. */
+
+/* Apply a predictable box model and remove default browser margins. */
+* {
+  box-sizing: border-box; /* Width includes padding and borders, which makes layout easier. */
+  margin: 0; /* Remove the browser's default outer spacing. */
+  padding: 0; /* Remove the browser's default inner spacing. */
+}
+
+/* Style the whole page and center the dashboard. */
+body {
+  min-height: 100vh; /* Make the page at least as tall as the screen. */
+  display: flex; /* Flexbox is the simplest way to center the content. */
+  align-items: center; /* Center the dashboard vertically. */
+  justify-content: center; /* Center the dashboard horizontally. */
+  padding: 24px; /* Keep the dashboard away from the screen edges. */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* Use the device's clean system font. */
+  color: #0f2a1d; /* Dark green text is readable on the light background. */
+  background: radial-gradient(circle at top, #e8f6ec 0%, #f7faf8 55%, #eef4f0 100%); /* Soft farm-themed background. */
+}
+
+/* Limit the dashboard width so it stays comfortable on large screens. */
+.dashboard {
+  width: 100%; /* Fill the available width inside the body padding. */
+  max-width: 760px; /* Stop the cards from becoming too wide on desktop. */
+}
+
+/* Space out the header text. */
+.header {
+  margin-bottom: 28px; /* Separate the header from the sensor cards. */
+  text-align: center; /* Center the title and subtitle. */
+}
+
+/* Style the small label above the title. */
+.eyebrow {
+  margin-bottom: 10px; /* Space between the label and the title. */
+  font-size: 12px; /* Small label text. */
+  font-weight: 700; /* Make the label stand out. */
+  letter-spacing: 0.16em; /* Wide letter spacing gives it a modern look. */
+  text-transform: uppercase; /* Display the label in capital letters. */
+  color: #1d7a46; /* Use the RoboTech green accent. */
+}
+
+/* Style the main page title. */
+h1 {
+  font-size: clamp(30px, 6vw, 44px); /* Scale the title between 30px and 44px with the screen. */
+  line-height: 1.1; /* Keep the title compact. */
+  letter-spacing: -0.02em; /* Tighten the letters slightly for a polished look. */
+}
+
+/* Style the sentence below the title. */
+.subtitle {
+  max-width: 520px; /* Keep the line length readable. */
+  margin: 12px auto 0; /* Center the text and add space above it. */
+  font-size: 15px; /* Comfortable body text size. */
+  line-height: 1.6; /* Add breathing room between lines. */
+  color: #577065; /* Muted green-grey for secondary text. */
+}
+
+/* Arrange the two sensor cards in a responsive grid. */
+.cards {
+  display: grid; /* Grid makes equal-width cards simple. */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two equal columns that can shrink safely. */
+  gap: 16px; /* Space between the cards. */
+}
+
+/* Style each sensor card. */
+.card {
+  padding: 26px 24px; /* Inner space around the icon, label and value. */
+  border: 1px solid rgba(29, 122, 70, 0.14); /* A subtle green border. */
+  border-radius: 22px; /* Rounded corners. */
+  background: rgba(255, 255, 255, 0.86); /* Nearly white card background. */
+  box-shadow: 0 18px 40px rgba(20, 70, 45, 0.09); /* Soft shadow lifts the card off the page. */
+}
+
+/* Size the decorative icon. */
+.card-icon {
+  display: inline-block; /* Allow the icon to sit on its own line naturally. */
+  margin-bottom: 18px; /* Space between the icon and the label. */
+  font-size: 30px; /* Large enough to recognize at a glance. */
+}
+
+/* Style the measurement name. */
+.card-label {
+  margin-bottom: 6px; /* Space between the label and the number. */
+  font-size: 13px; /* Small label text. */
+  font-weight: 600; /* Medium weight for clarity. */
+  letter-spacing: 0.04em; /* Slightly spaced letters. */
+  text-transform: uppercase; /* Keep the card labels consistent. */
+  color: #577065; /* Muted secondary color. */
+}
+
+/* Style the measurement value row. */
+.card-value {
+  display: flex; /* Keep the number and unit aligned on one line. */
+  align-items: baseline; /* Align the unit with the bottom of the number. */
+  gap: 6px; /* Small gap between number and unit. */
+  font-size: clamp(42px, 10vw, 64px); /* Large, easy-to-read sensor value. */
+  font-weight: 750; /* Strong weight for the main number. */
+  line-height: 1; /* Remove extra space above and below the number. */
+  color: #0f2a1d; /* Use the darkest text color. */
+  font-variant-numeric: tabular-nums; /* Stop numbers from jumping as they change. */
+}
+
+/* Style the unit next to the value. */
+.unit {
+  font-size: 20px; /* Much smaller than the number. */
+  font-weight: 600; /* Keep the unit readable. */
+  color: #1d7a46; /* Use the green accent. */
+}
+
+/* Style the status footer. */
+.status-bar {
+  display: flex; /* Place the dot, message and timestamp in one row. */
+  flex-wrap: wrap; /* Allow wrapping on narrow screens. */
+  align-items: center; /* Center items vertically. */
+  gap: 8px; /* Space between the dot and text. */
+  margin-top: 22px; /* Separate the footer from the cards. */
+  padding: 0 4px; /* Slight alignment with the card text. */
+  font-size: 13px; /* Small status text. */
+  color: #577065; /* Muted secondary color. */
+}
+
+/* Style the small connection dot. */
+.dot {
+  width: 9px; /* Small dot width. */
+  height: 9px; /* Small dot height. */
+  border-radius: 50%; /* Make the square a circle. */
+  background: #b7c4bc; /* Grey default while the state is unknown. */
+  flex: 0 0 auto; /* Prevent flexbox from shrinking the dot. */
+}
+
+/* Green dot when data is arriving normally. */
+.dot.online {
+  background: #1d7a46; /* Use the success green. */
+  box-shadow: 0 0 0 4px rgba(29, 122, 70, 0.12); /* Soft green glow. */
+}
+
+/* Amber dot while waiting for the first reading. */
+.dot.waiting {
+  background: #d49a1f; /* Use a warm warning color. */
+  box-shadow: 0 0 0 4px rgba(212, 154, 31, 0.12); /* Soft amber glow. */
+}
+
+/* Red dot when the API cannot be reached. */
+.dot.offline {
+  background: #c0492f; /* Use a clear error color. */
+  box-shadow: 0 0 0 4px rgba(192, 73, 47, 0.12); /* Soft red glow. */
+}
+
+/* Push the timestamp to the right edge. */
+.last-update {
+  margin-left: auto; /* Fill the free space on the left, pushing this item right. */
+  font-variant-numeric: tabular-nums; /* Keep timestamps from shifting width. */
+}
+
+/* Adjust the layout for small phone screens. */
+@media (max-width: 520px) {
+  .cards {
+    grid-template-columns: 1fr; /* Stack the cards instead of squeezing them side by side. */
+  }
+
+  .card {
+    padding: 22px 20px; /* Slightly smaller card padding on phones. */
+  }
+
+  .last-update {
+    width: 100%; /* Move the timestamp onto its own line when space is tight. */
+    margin-left: 17px; /* Align it with the status text above. */
+  }
+}

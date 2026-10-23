@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "RoboTech Farm Monitor",
+    "slug": "robotech-farm-monitor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.robotech.farmmonitor"
+    },
+    "android": {
+      "package": "com.robotech.farmmonitor"
+    }
+  }
+}
