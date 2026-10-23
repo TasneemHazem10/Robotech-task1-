@@ -1,66 +1,62 @@
 <!DOCTYPE html>
-<!-- This tells the browser to render the page using modern HTML5 rules. -->
+
 <html lang="en">
-  <!-- The head contains information about the page and its styles. -->
+
   <head>
-    <!-- Use UTF-8 so symbols such as ° and the icons display correctly. -->
+
     <meta charset="UTF-8" />
-    <!-- Make the layout scale correctly on phones and tablets. -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- This is the text shown in the browser tab. -->
+
     <title>RoboTech Smart Farm</title>
-    <!-- Load the stylesheet that controls the dashboard design. -->
+
     <link rel="stylesheet" href="style.css" />
   </head>
-  <!-- The body contains everything the user sees. -->
+
   <body>
-    <!-- Main wraps the whole dashboard and provides the centered layout. -->
+
     <main class="dashboard">
-      <!-- The header introduces the dashboard and the data source. -->
+
       <header class="header">
-        <!-- A small label above the title. -->
+
         <p class="eyebrow">RoboTech · Smart Farm</p>
-        <!-- The main page title. -->
+
         <h1>Live Sensor Readings</h1>
-        <!-- One short sentence explaining where the values come from. -->
+
         <p class="subtitle">Temperature and humidity received from the IoT device over MQTT.</p>
       </header>
 
-      <!-- The cards section holds the two main sensor values side by side. -->
-      <section class="cards">
-        <!-- Temperature card: the label and value are updated by app.js. -->
+<section class="cards">
+
         <article class="card">
-          <!-- Decorative icon; aria-hidden keeps it out of screen-reader output. -->
+
           <span class="card-icon" aria-hidden="true">🌡️</span>
-          <!-- The name of the measurement. -->
+
           <p class="card-label">Temperature</p>
-          <!-- The value is inside a span so JavaScript can replace only the number. -->
+
           <p class="card-value"><span id="temperature">--</span><span class="unit">°C</span></p>
         </article>
 
-        <!-- Humidity card: same structure as the temperature card. -->
-        <article class="card">
-          <!-- Decorative icon for the humidity card. -->
+<article class="card">
+
           <span class="card-icon" aria-hidden="true">💧</span>
-          <!-- The name of the measurement. -->
+
           <p class="card-label">Humidity</p>
-          <!-- The value is inside a span so JavaScript can replace only the number. -->
+
           <p class="card-value"><span id="humidity">--</span><span class="unit">%</span></p>
         </article>
       </section>
 
-      <!-- The footer shows whether the dashboard is connected and when data last arrived. -->
-      <footer class="status-bar">
-        <!-- A colored dot that changes with the connection state. -->
+<footer class="status-bar">
+
         <span id="status-dot" class="dot waiting"></span>
-        <!-- The status message read by the user. -->
+
         <span id="status-text">Connecting to the backend…</span>
-        <!-- The timestamp of the newest stored reading. -->
+
         <span id="last-update" class="last-update"></span>
       </footer>
     </main>
 
-    <!-- Load the JavaScript last so all elements above already exist. -->
-    <script src="app.js"></script>
+<script src="app.js"></script>
   </body>
 </html>

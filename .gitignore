@@ -1,15 +1,11 @@
-# PHP backend dependencies are not required, but logs and editor files are ignored.
 *.log
 
-# Node dependencies for the React Native app.
 mobile/node_modules/
 
-# Expo cache and build folders.
 mobile/.expo/
 mobile/dist/
 mobile/web-build/
 
-# Local environment and operating-system files.
 .env
 .DS_Store
 Thumbs.db
