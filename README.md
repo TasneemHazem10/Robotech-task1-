@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 I used Xamp for the Database 
 
 1- open the xamp control panel
@@ -12,3 +13,6 @@ and in the message : {"temp": 25, "humidity": 60}
 and then click puclish 
 
 5- you will see the changes after running them 
+=======
+# Robotech-task1-
+>>>>>>> 86876d6d62af28f5cbb11b5a38e03750ecb4db08
