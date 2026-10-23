@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 I used Xamp for the Database 
 
 1- open the xamp control panel
